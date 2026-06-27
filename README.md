@@ -1,46 +1,44 @@
-# SM YouTube Link Manager 🚀
+# 📱 SM YouTube Link Manager
 
-A modern, mobile-first Web App designed to curate and display your active YouTube videos. Built with pure PHP and MySQL, this project features a Linktree-style public interface and a secure, fully functional Admin Dashboard without relying on any heavy JavaScript frameworks or external authenticated APIs.
+A premium, modern, and ultra-responsive mobile-first **YouTube Link Management System** (similar to Linktree) built strictly using native **PHP, MySQL, and Tailwind CSS**. 
+
+This system allows creators to centralize their video content into a single custom dashboard while disabling intrusive interactions like right-click, text selection, and forced zoom to deliver a secure, native app-like experience.
+
+---
 
 ## ✨ Features
 
-**User Interface (Public)**
-* 📱 **Mobile-First Design:** Fully responsive layout optimized for all devices.
-* 🌙 **Dark Theme:** Modern, clean, and professional dark UI.
-* 🔗 **Linktree-Style Layout:** Clickable profile logo, channel name, and compact video cards.
-* 🔒 **Content Protection:** Right-click, text-selection, and zoom shortcuts are strictly disabled.
-* 🎬 **Auto-Thumbnails:** Automatically fetches high-quality YouTube thumbnails via oEmbed.
+### 👤 User Front-End (Linktree Style)
+* 🌟 **Responsive Dark Theme:** Fully optimized for mobile screens with high-contrast AMOLED aesthetics.
+* 🔗 **Interactive Profile Header:** Clickable channel logo and name that seamlessly opens your YouTube channel.
+* 🎥 **Dynamic Video Cards:** Custom rounded corners, hover glow effects, and a clean landscape thumbnail layout.
+* ⏱️ **Smart Ordering:** Automatically lists active videos by customized display order, sorting newest uploads first.
 
-**Admin Panel**
-* 🛡️ **Secure Login:** Session-based authentication with `password_hash()` protection.
-* 📊 **Single-Page Dashboard:** Manage all aspects of the application from one place.
-* ⚙️ **Channel Settings:** Update channel name, description, and logo (Upload or URL).
-* 📹 **Video Management:** Add, edit, hide, or delete videos. Set display orders easily.
-* 🔄 **Auto-Fetch Titles:** Automatically retrieves video titles from YouTube URLs.
-* 🔑 **Security Management:** Update admin username and password directly from the dashboard.
+### 🔐 Administrative Dashboard
+* 🛠️ **Dedicated Video Manager:** Easily add, edit, and organize your YouTube links through a clean dashboard.
+* ⚙️ **Advanced Settings Panel:** A separate configuration area to manage channel metadata, logos, and admin security credentials.
+* 🤖 **Auto-Fetch Content:** Generates YouTube video IDs, extracts official titles through unauthenticated oEmbed APIs, and builds high-quality thumbnail links automatically.
+* 📂 **Secure Image Uploads:** Native support for local file uploads (JPG, PNG, WEBP) with server-side validation or direct image URLs.
+* 🛡️ **Hardened Security:** Built using PHP Prepared Statements to eliminate SQL Injection, robust session architecture, and `password_hash()` encryption.
+* 🚫 **App Protection Script:** Injected blocks to disable Right-click, Text Selection, `Ctrl+U`/`F12` inspection, and pinch-to-zoom on mobile devices.
 
-## 🛠️ Technologies Used
+---
 
-* **Backend:** PHP (Vanilla, Standard POST/GET requests)
-* **Database:** MySQL (Prepared Statements for security)
-* **Styling:** Tailwind CSS (via CDN)
-* **Icons:** Font Awesome (via CDN)
-* *Note: No AJAX, React, Laravel, or jQuery used. Pure server-side rendering.*
-
-## 📂 Folder Structure
+## 📁 Project Structure
 
 ```text
-📁 Root
-┣ 📁 admin
-┃ ┣ 📁 common
-┃ ┃ ┣ bottom.php
-┃ ┃ ┗ header.php
-┃ ┣ index.php
-┃ ┗ login.php
+📁 sm-youtube-link-manager
 ┣ 📁 common
-┃ ┣ bottom.php
-┃ ┣ config.php
-┃ ┗ header.php
-┣ 📁 upload          # Stores locally uploaded images
-┣ index.php          # Public Homepage
-┗ install.php        # 1-Click Database Setup
+┃ ┣ 📄 config.php        # DB connection, security functions & image processor
+┃ ┣ 📄 header.php        # UI Document Head, Tailwind Config & global styling
+┃ ┗ 📄 bottom.php        # Front-End global footer & security restrictions script
+┣ 📁 admin
+┃ ┣ 📄 login.php         # Secure administrator access gate
+┃ ┣ 📄 index.php         # Dashboard Panel (Video Management)
+┃ ┣ 📄 setting.php       # Channel Configuration & Admin Security
+┃ ┗ 📁 common
+┃   ┣ 📄 header.php      # Admin restricted validation & dynamic navigation
+┃   ┗ 📄 bottom.php      # Admin panel execution wrappers
+┣ 📁 upload              # Auto-created secure storage for images & logos
+┣ 📄 index.php           # Public Front-end Landing Page
+┗ 📄 install.php          # Auto-installation and structural creation script

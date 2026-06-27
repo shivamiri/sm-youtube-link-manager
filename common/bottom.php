@@ -29,12 +29,7 @@
             }
         }, { passive: false });
         
-        // 4. Disable Pinch Zoom on touch devices
-        document.addEventListener('touchmove', function(event) {
-            if (event.scale !== 1) { 
-                event.preventDefault(); 
-            }
-        }, { passive: false });
+        // Touchmove wala script yahan se hata diya gaya hai taki scrolling smooth rahe
     </script>
 </body>
 </html>
